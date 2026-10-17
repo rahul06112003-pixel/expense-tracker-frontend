@@ -1,0 +1,549 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+}
+
+.navbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid #ddd;
+}
+
+.app-body {
+  display: flex;
+  min-height: calc(100vh - 60px);
+}
+
+.sidebar {
+  width: 220px;
+  padding: 24px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.sidebar li {
+  margin-bottom: 12px;
+}
+
+.sidebar a {
+  text-decoration: none;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+}
+
+/* =========================
+   Expenses Page
+========================= */
+
+.expenses-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.page-title {
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+/* =========================
+   Add Expense Form
+========================= */
+
+.expense-form {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 35px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.expense-form h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  padding: 11px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 7px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #1d4ed8;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   Expense List
+========================= */
+
+.expense-section h2 {
+  margin-bottom: 20px;
+}
+
+.expense-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.expense-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.expense-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.expense-card-header h3 {
+  margin: 0;
+  font-size: 19px;
+  text-transform: capitalize;
+}
+
+.expense-amount {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.expense-category {
+  display: inline-block;
+  margin: 12px 0;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #eef2ff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.expense-note {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.expense-date {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.empty-message {
+  color: #6b7280;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 800px) {
+  .expense-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .expenses-page {
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .expense-list {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 26px;
+  }
+}
+
+.delete-btn {
+  margin-top: 15px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #dc2626;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+.edit-btn {
+  margin-top: 15px;
+  margin-right: 8px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #1d4ed8;
+}
+
+
+
+.dashboard-section {
+  margin-top: 28px;
+}
+
+.section-title {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f3f4f6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.stat-card,
+.chart-card {
+  background: #20242d;
+  border: 1px solid #343b49;
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.stat-label {
+  margin: 0 0 12px;
+  color: #aab3c5;
+  font-size: 0.95rem;
+}
+
+.stat-value {
+  margin: 0;
+  color: #f9fafb;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  overflow-wrap: anywhere;
+}
+
+.stat-description,
+.chart-description {
+  margin: 10px 0 0;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+.chart-header {
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 320px;
+  min-width: 0;
+}
+
+.empty-message {
+  color: #aab3c5;
+  padding: 24px 0;
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card,
+  .chart-card {
+    padding: 16px;
+  }
+
+  .chart-container {
+    height: 280px;
+  }
+}
+
+
+.category-card {
+  margin-bottom: 28px;
+}
+
+.category-chart-container {
+  width: 100%;
+  height: 340px;
+  min-width: 0;
+}
+
+.category-card .recharts-legend-item {
+  margin: 6px 10px;
+}
+
+.category-card .recharts-tooltip-cursor {
+  fill: transparent;
+}
+
+@media (max-width: 640px) {
+  .category-chart-container {
+    height: 300px;
+  }
+
+  .category-card .recharts-legend-item {
+    margin: 4px 6px;
+  }
+}
+
+
+/* Recent Transactions */
+.recent-transactions {
+  margin-bottom: 28px;
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid #343b49;
+}
+
+.transaction-item:first-child {
+  padding-top: 4px;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+  padding-bottom: 4px;
+}
+
+.transaction-info {
+  min-width: 0;
+}
+
+.transaction-title {
+  margin: 0;
+  color: #f3f4f6;
+  font-size: 1rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.transaction-meta {
+  margin: 7px 0 0;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+.transaction-amount {
+  flex-shrink: 0;
+  margin: 0;
+  color: #fca5a5;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .transaction-item {
+    gap: 10px;
+  }
+
+  .transaction-title {
+    font-size: 0.9rem;
+  }
+
+  .transaction-meta {
+    font-size: 0.78rem;
+  }
+
+  .transaction-amount {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   Income Page
+========================= */
+
+.income-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* Income form reuses expense-form styles */
+.income-page .expense-form {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+/* Income list heading */
+.income-page .expense-section {
+  margin-top: 30px;
+}
+
+.income-page .expense-section h2 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+/* Income cards */
+.income-page .expense-card {
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.income-page .expense-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+}
+
+/* Income amounts */
+.income-page .expense-amount {
+  color: #15803d;
+  overflow-wrap: anywhere;
+}
+
+/* Form focus accessibility */
+.income-page input:focus-visible,
+.income-page select:focus-visible,
+.income-page button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Cancel Edit button */
+.cancel-btn {
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 11px 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #f3f4f6;
+}
+
+/* Responsive Income page */
+@media (max-width: 600px) {
+  .income-page {
+    padding: 20px;
+  }
+
+  .income-page .expense-card-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .income-page .submit-btn,
+  .income-page .cancel-btn {
+    margin-left: 0;
+    margin-right: 8px;
+  }
+}
+
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.date-filter {
+  padding: 10px 14px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #1e1e2f;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.date-filter:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
